@@ -16,4 +16,5 @@
 @property (nonatomic, strong, readonly) LKDBHelper* dbhelper;
 @property (nonatomic, strong, readonly) NSString* uid;
 - (instancetype) initWithUID:(NSString*)uid;
+- (void) updateOrInsertObject:(id)object;
 @end

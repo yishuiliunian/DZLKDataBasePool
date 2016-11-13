@@ -27,4 +27,13 @@ NSString* YHDBConnectionPathWithUID(NSString* uid) {
     _dbhelper = [[LKDBHelper alloc] initWithDBPath:YHDBConnectionPathWithUID(_uid)];
     return self;
 }
+
+- (void) updateOrInsertObject:(id)object
+{
+    if ([_dbhelper isExistsModel:object]) {
+        [_dbhelper updateToDB:object where:nil];
+    } else {
+        [_dbhelper insertToDB:object];
+    }
+}
 @end
